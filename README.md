@@ -1,19 +1,17 @@
 # Repulsion_Loss
 
-Pytorch implementation of Repulsion Loss as described in [Repulsion Loss: Detecting Pedestrians in a Crowd](https://arxiv.org/abs/1711.07752). The baseline is RetinaNet followed by this [repo](https://github.com/yhenon/pytorch-retinanet). 
+This repository is a replica of the [Repulsion Loss repository] with some additional code and datasets. It provides an implementation of Repulsion Loss as described in [Repulsion Loss: Detecting Pedestrians in a Crowd](https://arxiv.org/abs/1711.07752). The baseline is RetinaNet followed by this [repo](https://github.com/yhenon/pytorch-retinanet). 
 
 ## Requirements
 
 - Python3
-- Pytorch0.4
-- torchvision
-- tensorboardX
 
 ## Installation
 
 Install packages.
 
 ```
+pip install torch==0.4.1.post2 torchvision fastai
 sudo apt-get install tk-dev python-tk
 pip install cffi
 pip install cython
@@ -28,15 +26,8 @@ cd Repulsion_Loss/lib
 sh build.sh
 ```
 
-Create folders.
-
-```
-cd Repulsion_Loss
-mkdir ckpt mAP_txt summary weight
-```
-
 ## Datasets
-This repo is built for human detection. The popular annotation format for human detection（or pedestrian detection) includes bounding boxes of both human and ignore regions such as [Citypersons](https://arxiv.org/pdf/1702.05693.pdf) and [Crowdhuman](https://arxiv.org/pdf/1805.00123.pdf). You should write them in CSV or TXT files.
+In the Datasets folder you can find the anotations for two pedestrian detection related datasets ([Citypersons](https://arxiv.org/pdf/1702.05693.pdf) and [Crowdhuman](https://arxiv.org/pdf/1805.00123.pdf)). 
 
 ### Annotations format
 Three examples are as follows:
@@ -54,6 +45,7 @@ A TXT file (classes.txt) is needed to map label to ID. Each line means one label
 
 ```
 person 0
+ignore 1
 ```
 
 ## Pretrained Model
@@ -72,16 +64,3 @@ We use resnet18, 34, 50, 101, 152 as the backbone. You should download them and 
 python train.py --csv_train <$path/train.txt> --csv_val <$path/val.txt> --csv_classes <$path/classes.txt> --depth <50> --pretrained resnet50-19c8e357.pth --model_name <model name to save>
 ```
 
-## Visualization Result
-Baseline
-
-![img1](https://github.com/rainofmine/Repulsion_Loss/blob/master/img/1.png)
-
-Add repulsion loss
-
-![img2](https://github.com/rainofmine/Repulsion_Loss/blob/master/img/2.png)
-
-## Reference
-
-- [Focal Loss for Dense Object Detection](https://arxiv.org/abs/1708.02002)
-- [Repulsion Loss: Detecting Pedestrians in a Crowd](https://arxiv.org/abs/1711.07752)
