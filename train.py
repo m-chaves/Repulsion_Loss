@@ -46,6 +46,8 @@ def main(args=None):
 
     parser = parser.parse_args(args)
 
+    print('0.----------')
+    
     # Create the data loaders
     dataset_train = CSVDataset(train_file=parser.csv_train, class_list=parser.csv_classes, transform=transforms.Compose([Resizer(), Augmenter(), Normalizer()]))
 
@@ -63,6 +65,8 @@ def main(args=None):
         sampler_val = AspectRatioBasedSampler(dataset_val, batch_size=2, drop_last=False)
         dataloader_val = DataLoader(dataset_val, num_workers=16, collate_fn=collater, batch_sampler=sampler_val)
         #dataloader_val = DataLoader(dataset_train, num_workers=16, collate_fn=collater, batch_size=8, shuffle=True)
+
+    print('1.----------')
 
     # Create the model_pose_level_attention
     if parser.depth == 18:
@@ -105,6 +109,8 @@ def main(args=None):
 
     retinanet.train()
     retinanet.module.freeze_bn()
+
+    print('2.----------')
 
     print('Num training images: {}'.format(len(dataset_train)))
     f_map = open('./mAP_txt/' + parser.model_name + '.txt', 'a')
@@ -168,7 +174,11 @@ def main(args=None):
 
         torch.save(retinanet.module, './ckpt/' + parser.model_name + '_{}.pt'.format(epoch_num))
 
+    print('3.----------')
+
     retinanet.eval()
+
+    print('4.----------')
 
     writer.export_scalars_to_json("./summary/' + parser.pretrained + 'all_scalars.json")
     f_map.close()
