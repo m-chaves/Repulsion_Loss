@@ -1,4 +1,0 @@
-mask 0
-person 1
-mask 0
-person 1
