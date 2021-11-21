@@ -2,3 +2,6 @@
 *.pth
 *.jpg
 *.pt
+*.ini
+*.pyc
+*.so
