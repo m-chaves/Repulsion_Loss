@@ -1,6 +1,6 @@
 # Repulsion_Loss
 
-This repository is a replica of the [Repulsion Loss repository] (https://github.com/rainofmine/Repulsion_Loss) with some additional code and datasets. It provides an implementation of Repulsion Loss as described in [Repulsion Loss: Detecting Pedestrians in a Crowd](https://arxiv.org/abs/1711.07752). The baseline is RetinaNet followed by this [repo](https://github.com/yhenon/pytorch-retinanet). 
+This repository is a replica of the [Repulsion Loss repository](https://github.com/rainofmine/Repulsion_Loss) with some additional code and datasets. It provides an implementation of Repulsion Loss as described in [Repulsion Loss: Detecting Pedestrians in a Crowd](https://arxiv.org/abs/1711.07752). The baseline is RetinaNet followed by this [repo](https://github.com/yhenon/pytorch-retinanet). 
 
 ## Requirements
 
