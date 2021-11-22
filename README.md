@@ -26,6 +26,11 @@ cd Repulsion_Loss/lib
 sh build.sh
 ```
 
+Create some directories 
+```
+mkdir ckpt weight
+```
+
 ## Datasets
 In the Datasets folder you can find the anotations for two pedestrian detection related datasets ([Citypersons](https://arxiv.org/pdf/1702.05693.pdf) and [Crowdhuman](https://arxiv.org/pdf/1805.00123.pdf)). 
 
