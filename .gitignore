@@ -1,7 +1,7 @@
 *.png
 *.pth
 *.jpg
-!Datasets/CrowdHuman/CrowdHuman_train_subset_1000/*.jpg
+!Datasets/CrowdHuman/CrowdHuman_train_subset_1000/Images/*.jpg
 *.pt
 *.ini
 *.pyc
