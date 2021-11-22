@@ -284,7 +284,7 @@ class Resizer(object):
         # resize the image with the computed scale
 
         image = cv2.resize(image, (int(round((cols*scale))), int(round((rows*scale)))))
-        #image = skimage.transform.resize(image, (int(round(rows*scale)), int(round((cols*scale)))))
+        # image = skimage.transform.resize(image, (int(round(rows*scale)), int(round((cols*scale)))))
         
         rows, cols, cns = image.shape
 
