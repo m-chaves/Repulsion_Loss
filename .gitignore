@@ -7,4 +7,4 @@
 *.ini
 *.pyc
 *.so
-test_code.ipynb
+/test_code.ipynb
