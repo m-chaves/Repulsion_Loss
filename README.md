@@ -46,7 +46,11 @@ $image_path/img_2.jpg . . . . .
 Images with more than one bounding box should use one row per box. Labels that we often use are 'person' or 'ignore'. When an image does not contain any bounding box, set them '.'. 
 Note that x1 y1 determines the top-left corner of the bounding box, and x2 y2 determine the bottom-right corner. The original anotations of Cityperdons and CrowdHuman come in the format x1 y1 w h, which indicates the top-left corner and the width and height departing from that point.  
 
-Examples of this format (x1 y1 x2 y2) can be found in the text files is Datasets/CrowdHuman. This text files are the result of processing the orignal anotations with create_txt_files.ipynb.  
+Examples of this format (x1 y1 x2 y2) can be found in the text files is `/Datasets/CrowdHuman`. This text files are the result of processing the orignal anotations with `create_txt_files.ipynb`.  
+
+The Citypersons dataset validation images and anotations can be found in [](https://www.cityscapes-dataset.com/) and [](https://www.kaggle.com/meviole/cityperson-validation). 
+The CrowdHuman dataset (training and testing) can be found in [](https://www.crowdhuman.org/).
+Additionally, in this repository, in the `/Datasets/CrowdHuman` folder, small subsets of training and validation of CrowdHuman can be found.    
 
 ### Label encoding file
 A TXT file (classes.txt) is needed to map label to ID. Each line means one label name and its ID. One example is as follows:
@@ -70,5 +74,13 @@ We use resnet18, 34, 50, 101, 152 as the backbone. You should download them and 
 
 ```
 python train.py --csv_train <$path/train.txt> --csv_val <$path/val.txt> --csv_classes <$path/classes.txt> --depth <50> --pretrained resnet50-19c8e357.pth --model_name <model name to save>
+```
+
+## Working example
+
+After installing the requirements and placing, for instance, [https://download.pytorch.org/models/resnet50-19c8e357.pth](https://download.pytorch.org/models/resnet50-19c8e357.pth) in `/weight`, you can train the model in the small datasets provided in this repository. 
+
+```
+python train.py --csv_train Datasets/CrowdHuman/train_subset.txt --csv_val Datasets/CrowdHuman/val_subset.txt --csv_classes Datasets/CrowdHuman/classes.txt --depth 50 --epochs 30 --pretrained resnet50-19c8e357.pth --model_name model_name
 ```
 
