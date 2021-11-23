@@ -1,3 +1,4 @@
+test_code.ipynb
 *.png
 *.pth
 *.jpg
@@ -7,4 +8,3 @@
 *.ini
 *.pyc
 *.so
-/test_code.ipynb
